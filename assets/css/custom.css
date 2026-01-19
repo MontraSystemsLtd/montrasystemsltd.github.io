@@ -1,0 +1,46 @@
+/* ===============================
+   Montra – Custom overrides
+   This file loads AFTER main.css
+================================ */
+
+/* Neutral tiles (remove bright colours) */
+.tiles article > .image:before {
+  background-color: #111 !important;
+  opacity: 0.35 !important;
+}
+
+.tiles article.style1 > .image:before,
+.tiles article.style2 > .image:before,
+.tiles article.style3 > .image:before,
+.tiles article.style4 > .image:before,
+.tiles article.style5 > .image:before,
+.tiles article.style6 > .image:before {
+  background-color: #111 !important;
+  opacity: 0.35 !important;
+}
+
+.tiles article > .image:after {
+  opacity: 0.12 !important;
+}
+
+/* Slightly calmer typography on tiles */
+.tiles article > a h2 {
+  font-size: 0.95em !important;
+  letter-spacing: 0.25em !important;
+}
+
+.tiles article > a .content {
+  font-size: 0.9em !important;
+  opacity: 0.85 !important;
+}
+
+/* Hover: darker overlay + premium lift */
+body:not(.is-touch) .tiles article:hover > .image:before {
+  background-color: #000 !important;
+  opacity: 0.55 !important;
+}
+
+body:not(.is-touch) .tiles article:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 22px 45px rgba(0,0,0,0.35) !important;
+}
