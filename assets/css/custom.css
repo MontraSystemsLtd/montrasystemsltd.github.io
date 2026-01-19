@@ -229,3 +229,20 @@ body.is-touch .tiles article > a .content {
 #footer h2 {
   letter-spacing: 0.22em;
 }
+/* === Force uniform tile image sizing === */
+.tiles article > .image {
+  height: 260px;              /* controls tile height */
+  overflow: hidden;
+}
+
+.tiles article > .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* crops, never stretches */
+}
+
+
+
+
+
+
