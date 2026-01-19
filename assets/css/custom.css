@@ -1,14 +1,66 @@
-/* ===============================
-   Montra – Custom overrides
-   This file loads AFTER main.css
-================================ */
+/* =========================================================
+   MONTRA SYSTEMS – CUSTOM OVERRIDES
+   Put EVERYTHING here. Keep main.css untouched.
+   ========================================================= */
 
-/* Neutral tiles (remove bright colours) */
+/* ---------- Header (logo only, larger, premium) ---------- */
+
+#header {
+  padding: 2.25em 0 1.25em 0 !important;
+}
+
+#header .logo {
+  border-bottom: 0 !important;
+  text-decoration: none !important;
+}
+
+/* Hide any text title in header if present */
+#header .logo .title {
+  display: none !important;
+}
+
+/* Remove spacing intended for text */
+#header .logo .symbol {
+  margin-right: 0 !important;
+}
+
+/* Force logo size (works even if template fights it) */
+#header .logo img,
+#header .logo .symbol img {
+  height: 110px !important;
+  width: auto !important;
+  max-height: none !important;
+  display: block !important;
+  transition: transform 260ms ease, opacity 260ms ease !important;
+}
+
+#header .logo:hover img,
+#header .logo:hover .symbol img {
+  transform: translateY(-2px) !important;
+  opacity: 0.92 !important;
+}
+
+/* Mobile header/logo sizing */
+@media screen and (max-width: 736px) {
+  #header {
+    padding: 1.75em 0 0.75em 0 !important;
+  }
+
+  #header .logo img,
+  #header .logo .symbol img {
+    height: 72px !important;
+  }
+}
+
+/* ---------- Tiles: neutral, premium, consistent ---------- */
+
+/* Remove bright template colours by forcing a neutral overlay */
 .tiles article > .image:before {
   background-color: #111 !important;
   opacity: 0.35 !important;
 }
 
+/* Force ALL style variants to the same neutral overlay */
 .tiles article.style1 > .image:before,
 .tiles article.style2 > .image:before,
 .tiles article.style3 > .image:before,
@@ -19,127 +71,89 @@
   opacity: 0.35 !important;
 }
 
+/* Soften/quiet the diagonal X pattern (or hide it) */
 .tiles article > .image:after {
-  opacity: 0.12 !important;
+  opacity: 0.08 !important;
 }
 
-/* Slightly calmer typography on tiles */
+/* Make tiles feel less “template” */
+.tiles article {
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  transition: transform 360ms ease, box-shadow 360ms ease !important;
+  will-change: transform !important;
+}
+
+/* Image motion */
+.tiles article > .image {
+  transition: transform 520ms ease !important;
+}
+
+.tiles article > .image img {
+  transition: transform 520ms ease, filter 520ms ease !important;
+}
+
+/* Content reveal: Phantom uses max-height; we control it here */
+.tiles article > a .content {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  transform: translateY(10px) !important;
+  transition: max-height 420ms ease, opacity 420ms ease, transform 420ms ease !important;
+}
+
+/* Typography refinement */
 .tiles article > a h2 {
+  letter-spacing: 0.22em !important;
   font-size: 0.95em !important;
-  letter-spacing: 0.25em !important;
 }
 
 .tiles article > a .content {
   font-size: 0.9em !important;
-  opacity: 0.85 !important;
+  opacity: 0 !important; /* stays hidden until hover on non-touch */
 }
 
-/* Hover: darker overlay + premium lift */
-body:not(.is-touch) .tiles article:hover > .image:before {
-  background-color: #000 !important;
-  opacity: 0.55 !important;
-}
-
-/* === Montra: Premium Tile Refinement (Final) === */
-
-/* Calm baseline */
-.tiles article {
-  transition: transform 420ms ease, box-shadow 420ms ease;
-}
-
-/* Image motion */
-.tiles article .image img {
-  transition: transform 520ms ease, filter 520ms ease;
-}
-
-/* Text reveal */
-.tiles article a .content {
-  transition: opacity 420ms ease, transform 420ms ease;
-  transform: translateY(6px);
-}
-
-/* Hover behaviour (desktop only) */
-body:not(.is-touch) .tiles article:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px rgba(0,0,0,0.32);
-}
-
-body:not(.is-touch) .tiles article:hover .image img {
-  transform: scale(1.06);
-  filter: saturate(1.05) contrast(1.04);
-}
-
-body:not(.is-touch) .tiles article:hover a .content {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Typography tuning */
-.tiles article > a h2 {
-  letter-spacing: 0.22em;
-  font-weight: 900;
-}
-
-.tiles article > a .content {
-  opacity: 0.85;
-  font-size: 0.9em;
-}
-
-body:not(.is-touch) .tiles article:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 22px 45px rgba(0,0,0,0.35) !important;
-}
-
-/* === Montra: Guaranteed Tile Hover + Reveal (wins against Phantom) === */
-
-body:not(.is-touch) .tiles article {
-  transition: transform 420ms ease, box-shadow 420ms ease !important;
-}
-
+/* Desktop/Mouse hover behaviour (works on iPad with mouse too) */
 body:not(.is-touch) .tiles article:hover {
   transform: translateY(-10px) !important;
   box-shadow: 0 28px 55px rgba(0,0,0,0.35) !important;
 }
 
-body:not(.is-touch) .tiles article > .image {
-  transition: transform 520ms ease !important;
-}
-
 body:not(.is-touch) .tiles article:hover > .image {
+  transform: scale(1.05) !important;
+}
+
+body:not(.is-touch) .tiles article:hover > .image img {
   transform: scale(1.06) !important;
+  filter: saturate(1.05) contrast(1.04) !important;
 }
 
-/* IMPORTANT: Phantom hides this with max-height */
-.tiles article > a .content {
-  transition: opacity 420ms ease, transform 420ms ease !important;
-  opacity: 0 !important;
-  transform: translateY(8px) !important;
-  max-height: 0 !important;
-  overflow: hidden !important;
+body:not(.is-touch) .tiles article:hover > .image:before {
+  background-color: #000 !important;
+  opacity: 0.55 !important;
 }
 
-/* Reveal on hover */
 body:not(.is-touch) .tiles article:hover > a .content {
+  max-height: 15em !important;
   opacity: 1 !important;
   transform: translateY(0) !important;
-  max-height: 15em !important;
 }
-/* === Montra: Make tiles feel better on iPad/touch === */
 
-/* On touch devices, show the description (no hover needed) */
+/* Touch devices: show content without hover */
 body.is-touch .tiles article > a .content {
   max-height: 15em !important;
   opacity: 1 !important;
   transform: none !important;
 }
 
-/* Add a subtle press animation when you tap */
+/* Tap feedback (mobile/tablet) */
 .tiles article:active {
-  transform: scale(0.98) !important;
+  transform: scale(0.985) !important;
 }
 
-/* Clean, premium baseline */
-.tiles article {
-  border-radius: 10px;
-  overflow: hidden;
+/* ---------- Optional: overall sleekness tweaks ---------- */
+
+/* Slightly calmer link hover (less pink-y template vibe) */
+a:hover {
+  color: #222 !important;
 }
