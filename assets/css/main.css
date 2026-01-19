@@ -3342,7 +3342,53 @@ input, select, textarea {
   #header .logo img {
     height: 80px !important;
   }
+	/* === Montra: Neutral / Premium Tiles === */
+
+/* Base neutral overlay */
+.tiles article > .image:before {
+  background-color: #111 !important;
+  opacity: 0.35 !important;
 }
+
+/* Remove colour coding from all tile styles */
+.tiles article.style1 > .image:before,
+.tiles article.style2 > .image:before,
+.tiles article.style3 > .image:before,
+.tiles article.style4 > .image:before,
+.tiles article.style5 > .image:before,
+.tiles article.style6 > .image:before {
+  background-color: #111 !important;
+}
+
+/* Softer diagonal pattern */
+.tiles article > .image:after {
+  opacity: 0.12 !important;
+}
+
+/* Tile text refinement */
+.tiles article > a h2 {
+  font-size: 0.95em;
+  letter-spacing: 0.25em;
+}
+
+.tiles article > a .content {
+  font-size: 0.9em;
+  opacity: 0.85;
+}
+
+/* Hover: elegant lift + darker overlay */
+body:not(.is-touch) .tiles article:hover > .image:before {
+  background-color: #000 !important;
+  opacity: 0.55 !important;
+}
+
+/* Hover: calm, not aggressive */
+body:not(.is-touch) .tiles article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.35);
+
+}
+
 
 
 
