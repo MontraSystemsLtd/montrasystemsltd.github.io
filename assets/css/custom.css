@@ -157,7 +157,3 @@ body.is-touch .tiles article > a .content {
 a:hover {
   color: #222 !important;
 }
-/* === TEMP TEST: FORCE BACKGROUND CHANGE === */
-body {
-  background-color: #ff004c !important;
-}
