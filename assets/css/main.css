@@ -3333,16 +3333,22 @@ input, select, textarea {
 }
 
 /* Tighten header spacing */
+
 #header {
   padding: 2.5em 0 1.25em 0 !important;
 }
 
+/* Mobile logo sizing only */
 @media screen and (max-width: 736px) {
   #header .logo .symbol img,
   #header .logo img {
     height: 80px !important;
   }
-	/* === Montra: Neutral / Premium Tiles === */
+}
+
+/* ===============================
+   Montra: Neutral / Premium Tiles
+================================ */
 
 /* Base neutral overlay */
 .tiles article > .image:before {
@@ -3386,8 +3392,6 @@ body:not(.is-touch) .tiles article:hover > .image:before {
 body:not(.is-touch) .tiles article:hover {
   transform: translateY(-6px);
   box-shadow: 0 22px 45px rgba(0,0,0,0.35);
-
-}
 }
 
 
