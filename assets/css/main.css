@@ -3316,5 +3316,20 @@ input, select, textarea {
   opacity: 1;
   transform: translateY(-2px);
 }
+/* === Montra override: force large logo === */
+#header .logo .symbol img {
+  height: 110px !important;
+  width: auto !important;
+  max-height: none !important;
+}
+
+#header .logo .title {
+  display: none !important;
+}
+
+#header {
+  padding: 2.5em 0 1.25em 0 !important;
+}
+
 
 
