@@ -40,6 +40,51 @@ body:not(.is-touch) .tiles article:hover > .image:before {
   opacity: 0.55 !important;
 }
 
+/* === Montra: Premium Tile Refinement (Final) === */
+
+/* Calm baseline */
+.tiles article {
+  transition: transform 420ms ease, box-shadow 420ms ease;
+}
+
+/* Image motion */
+.tiles article .image img {
+  transition: transform 520ms ease, filter 520ms ease;
+}
+
+/* Text reveal */
+.tiles article a .content {
+  transition: opacity 420ms ease, transform 420ms ease;
+  transform: translateY(6px);
+}
+
+/* Hover behaviour (desktop only) */
+body:not(.is-touch) .tiles article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.32);
+}
+
+body:not(.is-touch) .tiles article:hover .image img {
+  transform: scale(1.06);
+  filter: saturate(1.05) contrast(1.04);
+}
+
+body:not(.is-touch) .tiles article:hover a .content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typography tuning */
+.tiles article > a h2 {
+  letter-spacing: 0.22em;
+  font-weight: 900;
+}
+
+.tiles article > a .content {
+  opacity: 0.85;
+  font-size: 0.9em;
+}
+
 body:not(.is-touch) .tiles article:hover {
   transform: translateY(-6px) !important;
   box-shadow: 0 22px 45px rgba(0,0,0,0.35) !important;
