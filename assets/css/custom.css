@@ -1,7 +1,22 @@
 /* =========================================================
-   MONTRA SYSTEMS – CUSTOM OVERRIDES
-   Put EVERYTHING here. Keep main.css untouched.
+   MONTRA SYSTEMS – PREMIUM OVERRIDES (CUSTOM.CSS)
+   Keep main.css untouched. This file loads last.
    ========================================================= */
+
+/* ---------- Global tone: calmer + more premium ---------- */
+
+body {
+  color: #3e3e3e;
+}
+
+a:hover {
+  color: #222 !important; /* reduce template pink */
+}
+
+/* Subtle selection styling */
+::selection {
+  background: rgba(0,0,0,0.08);
+}
 
 /* ---------- Header (logo only, larger, premium) ---------- */
 
@@ -9,22 +24,17 @@
   padding: 2.25em 0 1.25em 0 !important;
 }
 
-#header .logo {
-  border-bottom: 0 !important;
-  text-decoration: none !important;
-}
-
-/* Hide any text title in header if present */
+/* Remove title text if it exists */
 #header .logo .title {
   display: none !important;
 }
 
-/* Remove spacing intended for text */
+/* Remove spacing meant for text */
 #header .logo .symbol {
   margin-right: 0 !important;
 }
 
-/* Force logo size (works even if template fights it) */
+/* Force logo size (wins against template) */
 #header .logo img,
 #header .logo .symbol img {
   height: 110px !important;
@@ -40,7 +50,6 @@
   opacity: 0.92 !important;
 }
 
-/* Mobile header/logo sizing */
 @media screen and (max-width: 736px) {
   #header {
     padding: 1.75em 0 0.75em 0 !important;
@@ -52,12 +61,73 @@
   }
 }
 
+/* ---------- Hero: make it feel like a designed “card” ---------- */
+/* Phantom uses: #main > .inner > header (your hero block) */
+
+#main > .inner > header {
+  position: relative;
+  padding: 3.25em 3em !important;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #0f1217; /* dark base */
+  color: rgba(255,255,255,0.90);
+  margin-bottom: 3em !important;
+}
+
+/* Gradient overlay */
+#main > .inner > header:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.08), transparent 45%),
+              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06), transparent 40%),
+              linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.25));
+  pointer-events: none;
+}
+
+/* Keep text above overlay */
+#main > .inner > header > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero typography */
+#main > .inner > header h1 {
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.6em !important;
+}
+
+#main > .inner > header p {
+  color: rgba(255,255,255,0.82);
+  max-width: 46rem;
+  margin-bottom: 0 !important;
+}
+
+/* Mobile hero spacing */
+@media screen and (max-width: 736px) {
+  #main > .inner > header {
+    padding: 2.25em 1.6em !important;
+    border-radius: 12px;
+  }
+}
+
+/* ---------- Section headings: less “shouty template” ---------- */
+
+#main h2 {
+  letter-spacing: 0.22em;
+}
+
+#main section:not(.tiles) {
+  margin-top: 2.5em;
+}
+
 /* ---------- Tiles: neutral, premium, consistent ---------- */
 
-/* Remove bright template colours by forcing a neutral overlay */
+/* Remove bright tile colours by forcing a neutral overlay */
 .tiles article > .image:before {
   background-color: #111 !important;
-  opacity: 0.35 !important;
+  opacity: 0.30 !important;
 }
 
 /* Force ALL style variants to the same neutral overlay */
@@ -68,19 +138,19 @@
 .tiles article.style5 > .image:before,
 .tiles article.style6 > .image:before {
   background-color: #111 !important;
-  opacity: 0.35 !important;
+  opacity: 0.30 !important;
 }
 
-/* Soften/quiet the diagonal X pattern (or hide it) */
+/* Quiet the diagonal “X” pattern (almost invisible) */
 .tiles article > .image:after {
-  opacity: 0.08 !important;
+  opacity: 0.06 !important;
 }
 
-/* Make tiles feel less “template” */
+/* Make tiles feel less template-y */
 .tiles article {
-  border-radius: 10px !important;
+  border-radius: 14px !important;
   overflow: hidden !important;
-  transition: transform 360ms ease, box-shadow 360ms ease !important;
+  transition: transform 380ms ease, box-shadow 380ms ease !important;
   will-change: transform !important;
 }
 
@@ -93,7 +163,7 @@
   transition: transform 520ms ease, filter 520ms ease !important;
 }
 
-/* Content reveal: Phantom uses max-height; we control it here */
+/* Content reveal: control max-height (template uses this) */
 .tiles article > a .content {
   max-height: 0 !important;
   opacity: 0 !important;
@@ -102,21 +172,20 @@
   transition: max-height 420ms ease, opacity 420ms ease, transform 420ms ease !important;
 }
 
-/* Typography refinement */
+/* Tile typography */
 .tiles article > a h2 {
-  letter-spacing: 0.22em !important;
+  letter-spacing: 0.20em !important;
   font-size: 0.95em !important;
 }
 
-.tiles article > a .content {
-  font-size: 0.9em !important;
-  opacity: 0 !important; /* stays hidden until hover on non-touch */
+.tiles article > a .content p {
+  margin: 0 !important;
 }
 
-/* Desktop/Mouse hover behaviour (works on iPad with mouse too) */
+/* Hover behaviour (desktop/mouse — works on iPad with mouse too) */
 body:not(.is-touch) .tiles article:hover {
   transform: translateY(-10px) !important;
-  box-shadow: 0 28px 55px rgba(0,0,0,0.35) !important;
+  box-shadow: 0 28px 60px rgba(0,0,0,0.32) !important;
 }
 
 body:not(.is-touch) .tiles article:hover > .image {
@@ -125,12 +194,12 @@ body:not(.is-touch) .tiles article:hover > .image {
 
 body:not(.is-touch) .tiles article:hover > .image img {
   transform: scale(1.06) !important;
-  filter: saturate(1.05) contrast(1.04) !important;
+  filter: saturate(1.05) contrast(1.05) !important;
 }
 
 body:not(.is-touch) .tiles article:hover > .image:before {
   background-color: #000 !important;
-  opacity: 0.55 !important;
+  opacity: 0.50 !important;
 }
 
 body:not(.is-touch) .tiles article:hover > a .content {
@@ -146,14 +215,17 @@ body.is-touch .tiles article > a .content {
   transform: none !important;
 }
 
-/* Tap feedback (mobile/tablet) */
+/* Tap feedback */
 .tiles article:active {
   transform: scale(0.985) !important;
 }
 
-/* ---------- Optional: overall sleekness tweaks ---------- */
+/* ---------- Footer: quieter, more premium ---------- */
 
-/* Slightly calmer link hover (less pink-y template vibe) */
-a:hover {
-  color: #222 !important;
+#footer {
+  background-color: #f7f7f7;
+}
+
+#footer h2 {
+  letter-spacing: 0.22em;
 }
