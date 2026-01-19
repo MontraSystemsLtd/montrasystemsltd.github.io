@@ -124,3 +124,22 @@ body:not(.is-touch) .tiles article:hover > a .content {
   transform: translateY(0) !important;
   max-height: 15em !important;
 }
+/* === Montra: Make tiles feel better on iPad/touch === */
+
+/* On touch devices, show the description (no hover needed) */
+body.is-touch .tiles article > a .content {
+  max-height: 15em !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Add a subtle press animation when you tap */
+.tiles article:active {
+  transform: scale(0.98) !important;
+}
+
+/* Clean, premium baseline */
+.tiles article {
+  border-radius: 10px;
+  overflow: hidden;
+}
