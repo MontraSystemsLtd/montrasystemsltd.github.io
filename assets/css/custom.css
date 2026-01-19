@@ -89,3 +89,38 @@ body:not(.is-touch) .tiles article:hover {
   transform: translateY(-6px) !important;
   box-shadow: 0 22px 45px rgba(0,0,0,0.35) !important;
 }
+
+/* === Montra: Guaranteed Tile Hover + Reveal (wins against Phantom) === */
+
+body:not(.is-touch) .tiles article {
+  transition: transform 420ms ease, box-shadow 420ms ease !important;
+}
+
+body:not(.is-touch) .tiles article:hover {
+  transform: translateY(-10px) !important;
+  box-shadow: 0 28px 55px rgba(0,0,0,0.35) !important;
+}
+
+body:not(.is-touch) .tiles article > .image {
+  transition: transform 520ms ease !important;
+}
+
+body:not(.is-touch) .tiles article:hover > .image {
+  transform: scale(1.06) !important;
+}
+
+/* IMPORTANT: Phantom hides this with max-height */
+.tiles article > a .content {
+  transition: opacity 420ms ease, transform 420ms ease !important;
+  opacity: 0 !important;
+  transform: translateY(8px) !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Reveal on hover */
+body:not(.is-touch) .tiles article:hover > a .content {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  max-height: 15em !important;
+}
