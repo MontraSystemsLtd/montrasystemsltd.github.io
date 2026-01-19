@@ -3273,21 +3273,18 @@ input, select, textarea {
 /* Wrapper */
 
 	#wrapper > * > .inner {
-		width: 100%;
-		max-width: 68em;
-		margin: 0 auto;
-		padding: 0 2.5em;
-	}
-
-		@media screen and (max-width: 736px) {
-
-			#wrapper > * > .inner {
-				padding: 0 1.25em;
-			}
-			
+  width: 100%;
+  max-width: 68em;
+  margin: 0 auto;
+  padding: 0 2.5em;
 }
 
-		}
+@media screen and (max-width: 736px) {
+  #wrapper > * > .inner {
+    padding: 0 1.25em;
+  }
+}
+
 /* --- Premium tile hover micro-interactions --- */
 .tiles article {
   transition: transform 280ms ease, box-shadow 280ms ease;
@@ -3296,7 +3293,7 @@ input, select, textarea {
 
 .tiles article:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
 }
 
 .tiles article .image img {
@@ -3316,20 +3313,37 @@ input, select, textarea {
   opacity: 1;
   transform: translateY(-2px);
 }
-/* === Montra override: force large logo === */
-#header .logo .symbol img {
-  height: 110px !important;
-  width: auto !important;
-  max-height: none !important;
-}
 
+/* === Montra overrides: FORCE big logo + no text === */
 #header .logo .title {
   display: none !important;
 }
 
+/* Force the image itself large */
+#header .logo .symbol img,
+#header .logo img {
+  height: 120px !important;
+  width: auto !important;
+  max-height: none !important;
+}
+
+/* Remove any margin meant for text */
+#header .logo .symbol {
+  margin-right: 0 !important;
+}
+
+/* Tighten header spacing */
 #header {
   padding: 2.5em 0 1.25em 0 !important;
 }
+
+@media screen and (max-width: 736px) {
+  #header .logo .symbol img,
+  #header .logo img {
+    height: 80px !important;
+  }
+}
+
 
 
 
