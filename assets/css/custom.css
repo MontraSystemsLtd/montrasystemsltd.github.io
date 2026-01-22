@@ -240,7 +240,10 @@ body.is-touch .tiles article > a .content {
   height: 100%;
   object-fit: cover;          /* crops, never stretches */
 }
-
+/* Slightly lower the hero call-to-action button */
+#main > .inner > header .actions {
+  margin-top: 1.75em;
+}
 
 
 
