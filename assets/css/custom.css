@@ -360,6 +360,10 @@ body:not(.is-touch) .tiles article:hover {
 .reveal.reveal-slow {
   transition-duration: 1200ms;
 }
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+.reveal.reveal-slow { transition-duration: 1.2s; }
 
 /* Accessibility: respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
