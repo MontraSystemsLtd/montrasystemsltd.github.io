@@ -424,3 +424,9 @@ body:not(.is-touch) .tiles article:hover {
     margin-top: 10px;
   }
 }
+/* FORCE Montra logo size */
+#header .logo img {
+  height: 140px !important;
+  width: auto !important;
+  max-height: none !important;
+}
