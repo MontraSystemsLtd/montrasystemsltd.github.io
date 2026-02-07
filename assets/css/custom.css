@@ -394,3 +394,33 @@ body:not(.is-touch) .tiles article:hover {
     top: 2.4em; /* mobile adjustment */
   }
 }
+/* =========================
+   MONTRA HEADER OVERRIDES
+   ========================= */
+
+/* Make logo much bigger */
+#header .logo img {
+  height: 90px;        /* increase size */
+  width: auto;
+}
+
+/* Give header more breathing room */
+#header {
+  padding: 2.5em 0 2em 0;
+}
+
+/* Push menu button down slightly */
+#header nav {
+  margin-top: 18px;
+}
+
+/* Mobile tweak */
+@media screen and (max-width: 736px) {
+  #header .logo img {
+    height: 64px;
+  }
+
+  #header nav {
+    margin-top: 10px;
+  }
+}
