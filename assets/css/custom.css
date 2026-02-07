@@ -1,251 +1,345 @@
-/* =========================================================
-   MONTRA SYSTEMS – PREMIUM OVERRIDES (CUSTOM.CSS)
-   Keep main.css untouched. This file loads last.
-   ========================================================= */
+/* =========================
+   MONTRA — Premium facelift
+   Drop-in for HTML5UP Phantom
+   ========================= */
 
-/* ---------- Global tone: calmer + more premium ---------- */
+/* Safety: stop “cream” surprises coming from theme overrides */
+:root {
+  --montra-bg: #07080b;
+  --montra-card: rgba(255,255,255,0.06);
+  --montra-card-strong: rgba(255,255,255,0.10);
+  --montra-border: rgba(255,255,255,0.12);
+  --montra-text: rgba(255,255,255,0.88);
+  --montra-muted: rgba(255,255,255,0.65);
+}
 
+/* Overall background + text */
 body {
-  color: #3e3e3e;
+  background: var(--montra-bg) !important;
+  color: var(--montra-text);
 }
 
-a:hover {
-  color: #222 !important; /* reduce template pink */
+#main {
+  background: transparent !important;
 }
 
-/* Subtle selection styling */
-::selection {
-  background: rgba(0,0,0,0.08);
-}
-
-/* ---------- Header (logo only, larger, premium) ---------- */
-
+/* Header spacing */
 #header {
-  padding: 2.25em 0 1.25em 0 !important;
+  padding: 1.75em 0 1.0em 0 !important;
 }
 
-/* Remove title text if it exists */
-#header .logo .title {
-  display: none !important;
+/* Logo image sizing */
+#header .logo img {
+  height: 54px;
+}
+@media screen and (max-width: 736px) {
+  #header .logo img {
+    height: 44px;
+  }
 }
 
-/* Remove spacing meant for text */
-#header .logo .symbol {
-  margin-right: 0 !important;
-}
-
-/* Force logo size (wins against template) */
-#header .logo img,
-#header .logo .symbol img {
-  height: 110px !important;
-  width: auto !important;
-  max-height: none !important;
-  display: block !important;
-  transition: transform 260ms ease, opacity 260ms ease !important;
-}
-
-#header .logo:hover img,
-#header .logo:hover .symbol img {
-  transform: translateY(-2px) !important;
-  opacity: 0.92 !important;
+/* ---- HERO ---- */
+.montra-hero {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 4.25em 3.0em;
+  margin: 0 0 2.75em 0;
+  border: 1px solid var(--montra-border);
+  background: rgba(255,255,255,0.03);
 }
 
 @media screen and (max-width: 736px) {
-  #header {
-    padding: 1.75em 0 0.75em 0 !important;
-  }
-
-  #header .logo img,
-  #header .logo .symbol img {
-    height: 72px !important;
+  .montra-hero {
+    padding: 3.0em 1.4em;
   }
 }
 
-/* ---------- Hero: make it feel like a designed “card” ---------- */
-/* Phantom uses: #main > .inner > header (your hero block) */
-
-#main > .inner > header {
-  position: relative;
-  padding: 3.25em 3em !important;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #0f1217; /* dark base */
-  color: rgba(255,255,255,0.90);
-  margin-bottom: 3em !important;
+/* Abstract background (no video needed) */
+.montra-hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(800px 420px at 20% 25%, rgba(80,120,255,0.18), transparent 60%),
+    radial-gradient(700px 380px at 80% 30%, rgba(255,80,180,0.14), transparent 55%),
+    radial-gradient(700px 500px at 55% 85%, rgba(0,255,190,0.10), transparent 55%),
+    linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.50));
+  filter: saturate(120%);
+  transform: scale(1.05);
 }
 
-/* Gradient overlay */
-#main > .inner > header:before {
+/* subtle grain-ish feel */
+.montra-hero__bg:after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 20% 0%, rgba(255,255,255,0.08), transparent 45%),
-              radial-gradient(circle at 80% 20%, rgba(255,255,255,0.06), transparent 40%),
-              linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.25));
-  pointer-events: none;
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.00));
+  opacity: 0.35;
+  mix-blend-mode: overlay;
 }
 
-/* Keep text above overlay */
-#main > .inner > header > * {
+.montra-hero__content {
   position: relative;
-  z-index: 1;
+  max-width: 760px;
 }
 
-/* Hero typography */
-#main > .inner > header h1 {
-  color: #fff;
-  letter-spacing: -0.03em;
-  margin-bottom: 0.6em !important;
+.montra-eyebrow {
+  margin: 0 0 0.8em 0;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.78em;
+  color: var(--montra-muted);
 }
 
-#main > .inner > header p {
-  color: rgba(255,255,255,0.82);
-  max-width: 46rem;
-  margin-bottom: 0 !important;
+.montra-hero__title {
+  margin: 0 0 0.45em 0;
+  font-size: 2.35em;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
-/* Mobile hero spacing */
 @media screen and (max-width: 736px) {
-  #main > .inner > header {
-    padding: 2.25em 1.6em !important;
-    border-radius: 12px;
+  .montra-hero__title {
+    font-size: 1.85em;
   }
 }
 
-/* ---------- Section headings: less “shouty template” ---------- */
-
-#main h2 {
-  letter-spacing: 0.22em;
+.montra-hero__sub {
+  margin: 0 0 1.3em 0;
+  font-size: 1.05em;
+  color: var(--montra-text);
+  opacity: 0.9;
 }
 
-#main section:not(.tiles) {
-  margin-top: 2.5em;
+.montra-hero__cta {
+  display: flex;
+  gap: 0.75em;
+  flex-wrap: wrap;
+  margin: 0 0 1.0em 0;
 }
 
-/* ---------- Tiles: neutral, premium, consistent ---------- */
+/* Make Phantom buttons feel more premium */
+.montra-btn {
+  border-radius: 999px !important;
+  padding-left: 1.25em !important;
+  padding-right: 1.25em !important;
+}
 
-/* Remove bright tile colours by forcing a neutral overlay */
+/* Little meta line under CTA */
+.montra-hero__meta {
+  font-size: 0.95em;
+  color: var(--montra-muted);
+  display: flex;
+  gap: 0.6em;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.montra-hero__meta .dot {
+  opacity: 0.4;
+}
+
+/* ---- Section headings ---- */
+.montra-section {
+  margin: 0 0 2.75em 0;
+}
+.montra-section__head h2 {
+  margin-bottom: 0.3em;
+}
+.montra-section__head p {
+  margin: 0;
+  color: var(--montra-muted);
+}
+
+/* ---- Tiles facelift (your “tiles” but modern) ---- */
+.montra-tiles article {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--montra-border);
+}
+
+/* Neutral overlay (kills the default colour-coding) */
 .tiles article > .image:before {
-  background-color: #111 !important;
-  opacity: 0.30 !important;
+  background-color: #0a0b10 !important;
+  opacity: 0.35 !important;
 }
-
-/* Force ALL style variants to the same neutral overlay */
 .tiles article.style1 > .image:before,
 .tiles article.style2 > .image:before,
 .tiles article.style3 > .image:before,
 .tiles article.style4 > .image:before,
 .tiles article.style5 > .image:before,
 .tiles article.style6 > .image:before {
-  background-color: #111 !important;
-  opacity: 0.30 !important;
+  background-color: #0a0b10 !important;
 }
 
-/* Quiet the diagonal “X” pattern (almost invisible) */
+/* Soften Phantom’s diagonal pattern */
 .tiles article > .image:after {
-  opacity: 0.06 !important;
+  opacity: 0.10 !important;
 }
 
-/* Make tiles feel less template-y */
-.tiles article {
-  border-radius: 14px !important;
-  overflow: hidden !important;
-  transition: transform 380ms ease, box-shadow 380ms ease !important;
-  will-change: transform !important;
-}
-
-/* Image motion */
-.tiles article > .image {
-  transition: transform 520ms ease !important;
-}
-
-.tiles article > .image img {
-  transition: transform 520ms ease, filter 520ms ease !important;
-}
-
-/* Content reveal: control max-height (template uses this) */
-.tiles article > a .content {
-  max-height: 0 !important;
-  opacity: 0 !important;
-  overflow: hidden !important;
-  transform: translateY(10px) !important;
-  transition: max-height 420ms ease, opacity 420ms ease, transform 420ms ease !important;
-}
-
-/* Tile typography */
+/* Tile text refinement */
 .tiles article > a h2 {
-  letter-spacing: 0.20em !important;
-  font-size: 0.95em !important;
-}
-
-.tiles article > a .content p {
-  margin: 0 !important;
-}
-
-/* Hover behaviour (desktop/mouse — works on iPad with mouse too) */
-body:not(.is-touch) .tiles article:hover {
-  transform: translateY(-10px) !important;
-  box-shadow: 0 28px 60px rgba(0,0,0,0.32) !important;
-}
-
-body:not(.is-touch) .tiles article:hover > .image {
-  transform: scale(1.05) !important;
-}
-
-body:not(.is-touch) .tiles article:hover > .image img {
-  transform: scale(1.06) !important;
-  filter: saturate(1.05) contrast(1.05) !important;
-}
-
-body:not(.is-touch) .tiles article:hover > .image:before {
-  background-color: #000 !important;
-  opacity: 0.50 !important;
-}
-
-body:not(.is-touch) .tiles article:hover > a .content {
-  max-height: 15em !important;
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-}
-
-/* Touch devices: show content without hover */
-body.is-touch .tiles article > a .content {
-  max-height: 15em !important;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-/* Tap feedback */
-.tiles article:active {
-  transform: scale(0.985) !important;
-}
-
-/* ---------- Footer: quieter, more premium ---------- */
-
-#footer {
-  background-color: #f7f7f7;
-}
-
-#footer h2 {
+  font-size: 0.98em;
   letter-spacing: 0.22em;
 }
-/* === Force uniform tile image sizing === */
-.tiles article > .image {
-  height: 260px;              /* controls tile height */
+.tiles article > a .content {
+  font-size: 0.92em;
+  opacity: 0.88;
+}
+
+/* Hover: lift + darker overlay */
+body:not(.is-touch) .tiles article:hover > .image:before {
+  background-color: #000 !important;
+  opacity: 0.55 !important;
+}
+body:not(.is-touch) .tiles article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.35);
+}
+
+/* ---- Signature section layout ---- */
+.montra-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.25em;
+  align-items: start;
+}
+@media screen and (max-width: 980px) {
+  .montra-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.montra-split__title {
+  margin-top: 0;
+}
+.montra-split__lead {
+  color: var(--montra-muted);
+}
+
+/* Steps */
+.montra-steps {
+  margin-top: 1.25em;
+}
+.montra-step {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 0.9em;
+  padding: 1.0em;
+  border-radius: 16px;
+  border: 1px solid var(--montra-border);
+  background: var(--montra-card);
+  margin-bottom: 0.85em;
+}
+.montra-step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  width: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--montra-border);
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.82);
+  letter-spacing: 0.18em;
+  font-size: 0.8em;
+}
+.montra-step__body h3 {
+  margin: 0 0 0.2em 0;
+  font-size: 1.05em;
+}
+.montra-step__body p {
+  margin: 0;
+  color: var(--montra-muted);
+}
+
+/* Media card (right side) */
+.montra-card {
+  border: 1px solid var(--montra-border);
+  background: var(--montra-card);
+  border-radius: 18px;
+  padding: 1.1em;
+}
+.montra-card--media {
+  padding: 0;
   overflow: hidden;
 }
-
-.tiles article > .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;          /* crops, never stretches */
+.montra-card__media {
+  height: 340px;
+  background:
+    radial-gradient(500px 240px at 20% 25%, rgba(255,255,255,0.08), transparent 60%),
+    radial-gradient(500px 240px at 80% 30%, rgba(255,255,255,0.06), transparent 60%),
+    linear-gradient(140deg, rgba(120,90,255,0.18), rgba(0,0,0,0) 55%),
+    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.60));
 }
-/* Slightly lower the hero call-to-action button */
-#main > .inner > header .actions {
-  margin-top: 1.75em;
+.montra-card__caption {
+  padding: 1.0em 1.1em;
+  color: var(--montra-muted);
 }
 
+/* Small CTA row */
+.montra-mini-cta {
+  display: flex;
+  gap: 0.75em;
+  flex-wrap: wrap;
+  margin-top: 1.0em;
+}
 
+/* Pills */
+.montra-pillrow {
+  display: flex;
+  gap: 0.6em;
+  flex-wrap: wrap;
+  margin-top: 0.9em;
+}
+.montra-pill {
+  padding: 0.5em 0.85em;
+  border-radius: 999px;
+  border: 1px solid var(--montra-border);
+  background: rgba(255,255,255,0.04);
+  color: rgba(255,255,255,0.78);
+  font-size: 0.95em;
+}
 
+/* 3 cards row */
+.montra-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.0em;
+  margin-top: 1.0em;
+}
+@media screen and (max-width: 980px) {
+  .montra-cards {
+    grid-template-columns: 1fr;
+  }
+}
+.montra-cards .montra-card h3 {
+  margin-top: 0;
+}
+.montra-cards .montra-card p {
+  margin-bottom: 0;
+  color: var(--montra-muted);
+}
 
-
+/* Contact chips */
+.montra-contactline {
+  margin: 0.4em 0 1.25em 0;
+  color: var(--montra-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6em;
+  align-items: center;
+}
+.montra-contactchip {
+  display: inline-flex;
+  padding: 0.45em 0.85em;
+  border-radius: 999px;
+  border: 1px solid var(--montra-border);
+  background: rgba(255,255,255,0.04);
+  text-decoration: none;
+}
+.montra-contactchip:hover {
+  background: rgba(255,255,255,0.07);
+}
+.montra-divider {
+  opacity: 0.5;
+}
