@@ -373,3 +373,14 @@ body:not(.is-touch) .tiles article:hover {
     transition: none !important;
   }
 }
+/* ===== Header logo sizing (Montra) ===== */
+#header .logo img {
+  height: 88px;          /* increase this if you want it even bigger */
+  width: auto;
+}
+
+@media screen and (max-width: 736px) {
+  #header .logo img {
+    height: 64px;        /* slightly smaller on mobile */
+  }
+}
