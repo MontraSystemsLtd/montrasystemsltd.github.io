@@ -384,3 +384,13 @@ body:not(.is-touch) .tiles article:hover {
     height: 64px;        /* slightly smaller on mobile */
   }
 }
+/* ===== Menu button positioning ===== */
+#header nav {
+  top: 3.2em;   /* default is around 2em — this moves it down */
+}
+
+@media screen and (max-width: 736px) {
+  #header nav {
+    top: 2.4em; /* mobile adjustment */
+  }
+}
