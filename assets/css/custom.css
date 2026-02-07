@@ -400,7 +400,7 @@ body:not(.is-touch) .tiles article:hover {
 
 /* Make logo much bigger */
 #header .logo img {
-  height: 90px;        /* increase size */
+  height: 140px;        /* increase size */
   width: auto;
 }
 
