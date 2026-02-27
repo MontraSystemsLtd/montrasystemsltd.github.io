@@ -434,3 +434,91 @@ body:not(.is-touch) .tiles article:hover {
 #header nav {
   margin-top: 25px;
 }
+/* =========================
+   CONTACT / FOOTER READABILITY
+   ========================= */
+
+/* Make the whole footer/contact area more readable */
+#footer {
+  background: #f7f7f8;          /* soft off-white instead of pure white */
+  color: #111214;               /* strong text contrast */
+}
+
+/* Headings */
+#footer h2 {
+  color: #0f1012;
+  letter-spacing: 0.04em;
+}
+
+/* The email / website row */
+.montra-contactline {
+  margin: 14px 0 22px;
+}
+
+/* Make the chips feel like "important info" */
+.montra-contactchip {
+  color: #0f1012 !important;               /* forces readable text */
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.10);
+  padding: 10px 14px;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hover: subtle premium lift */
+.montra-contactchip:hover {
+  background: rgba(0,0,0,0.08);
+  border-color: rgba(0,0,0,0.16);
+}
+
+/* Divider dot */
+.montra-divider {
+  color: rgba(0,0,0,0.40);
+}
+
+/* Form inputs: darker text + clearer borders */
+#footer input[type="text"],
+#footer input[type="email"],
+#footer textarea {
+  color: #111214;
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.18);
+  box-shadow: none;
+}
+
+/* Placeholder text: darker */
+#footer input::placeholder,
+#footer textarea::placeholder {
+  color: rgba(0,0,0,0.45);
+}
+
+/* Focus state: clean but visible */
+#footer input:focus,
+#footer textarea:focus {
+  border-color: rgba(0,0,0,0.35);
+  outline: none;
+}
+
+/* Send button: readable and consistent */
+#footer input[type="submit"],
+#footer .button.primary {
+  background: #1a1b1f;
+  color: #ffffff !important;
+  border: 1px solid #1a1b1f;
+}
+
+#footer input[type="submit"]:hover,
+#footer .button.primary:hover {
+  background: #0f1012;
+  border-color: #0f1012;
+}
+
+/* Copyright / small text */
+#footer .copyright,
+#footer .copyright li {
+  color: rgba(0,0,0,0.55);
+}
