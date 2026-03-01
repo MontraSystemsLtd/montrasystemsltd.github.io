@@ -56,6 +56,25 @@
   max-width: 52ch;
 }
 
+/* More editorial tiles */
+.montra-tiles article {
+  border-radius: 18px;
+  overflow: hidden;
+  transform: translateZ(0);
+}
+
+.montra-tiles article .content p {
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Subtle hover like luxury sites */
+.montra-tiles article:hover {
+  transform: translateY(-4px);
+  transition: transform 240ms ease;
+}
+
 /* Overall background + text */
 body {
   background: var(--montra-bg) !important;
