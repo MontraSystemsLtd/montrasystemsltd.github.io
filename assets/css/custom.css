@@ -593,3 +593,17 @@ body:not(.is-touch) .tiles article:hover {
   padding-top: 80px;
   padding-bottom: 80px;
 }
+/* Bigger Montra logo */
+.logo img {
+  height: 48px;
+}
+
+/* Slight brightness lift */
+.logo img {
+  filter: brightness(1.2);
+}
+
+/* Cleaner header */
+.montra-header {
+  padding-top: 20px;
+}
