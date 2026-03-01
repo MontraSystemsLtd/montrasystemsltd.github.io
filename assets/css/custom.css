@@ -583,3 +583,13 @@ body:not(.is-touch) .tiles article:hover {
 #footer .copyright li {
   color: rgba(0,0,0,0.55);
 }
+/* Make hero content wider and better balanced */
+.montra-hero__content {
+  max-width: 760px;
+}
+
+/* Reduce empty space feeling */
+.montra-hero {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
