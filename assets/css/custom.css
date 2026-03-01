@@ -14,6 +14,29 @@
   --montra-muted: rgba(255,255,255,0.65);
 }
 
+/* Luxury serif headline (Homeplay-style) */
+.montra-hero__title,
+.montra-section h2,
+.montra-split__title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+}
+
+/* Make hero headline bigger + more dramatic */
+.montra-hero__title {
+  font-size: clamp(44px, 6vw, 86px);
+}
+
+/* Make subtext calmer + more premium */
+.montra-hero__sub {
+  font-size: 18px;
+  line-height: 1.7;
+  opacity: 0.9;
+  max-width: 52ch;
+}
+
 /* Overall background + text */
 body {
   background: var(--montra-bg) !important;
